@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width,initial-scale=1" />
+	<title>AI Study Buddy — Quiz</title>
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+	<div id="app">
+		<section id="setup-screen" class="screen">
+			<h1>AI Study Buddy</h1>
+			<p class="lead">Create a quick quiz — single page, fast flow.</p>
+
+			<label class="field">Topic
+				<input id="topic" type="text" placeholder="e.g., Biology, JavaScript" />
+			</label>
+
+			<label class="field">Difficulty
+				<div class="radio-row">
+					<label><input name="difficulty" type="radio" value="easy"> Easy</label>
+					<label><input name="difficulty" type="radio" value="medium" checked> Medium</label>
+					<label><input name="difficulty" type="radio" value="hard"> Hard</label>
+				</div>
+			</label>
+
+			<label class="field">Number of questions
+				<input id="numQuestions" type="number" min="1" max="10" value="5" />
+			</label>
+
+			<div class="actions">
+				<button id="startBtn" class="primary">Start Quiz</button>
+			</div>
+		</section>
+
+		<section id="quiz-screen" class="screen hidden">
+			<div id="topbar">
+				<div id="progress">Question 1 / 1</div>
+				<div id="score">Score: 0</div>
+			</div>
+
+			<div id="question-area">
+				<h2 id="questionText">Question text</h2>
+				<ul id="choices" class="choices"></ul>
+				<div id="feedback" class="feedback" aria-live="polite"></div>
+			</div>
+
+			<div class="controls">
+				<button id="showAnswerBtn">Show Answer</button>
+				<button id="nextBtn" disabled>Next Question</button>
+			</div>
+
+			<div id="end-screen" class="hidden">
+				<h2>Quiz complete</h2>
+				<p id="finalScore"></p>
+				<div class="actions">
+					<button id="restartBtn">Start New Quiz</button>
+				</div>
+			</div>
+		</section>
+	</div>
+
+	<script src="script.js"></script>
+</body>
+</html>
+
