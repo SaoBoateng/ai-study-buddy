@@ -52,10 +52,11 @@
 	// Call the local proxy that forwards to OpenAI. Expects backend at /api/generate
 	async function fetchQuestionsFromServer(topic, difficulty, n){
 		try{
+			// the server expects a field named `count` (not numQuestions)
 			const resp = await fetch('/api/generate', {
 				method: 'POST',
 				headers: {'Content-Type':'application/json'},
-				body: JSON.stringify({topic, difficulty, numQuestions: n})
+				body: JSON.stringify({topic, difficulty, count: n})
 			});
 			if(!resp.ok) throw new Error(`Server error ${resp.status}`);
 			const data = await resp.json();
